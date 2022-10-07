@@ -21,7 +21,7 @@ public class Permission {
     }
 
     public Permission() {
-
+        super();
     }
 
     public Long getId() {

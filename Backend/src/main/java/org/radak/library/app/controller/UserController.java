@@ -23,7 +23,7 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(path = "", method = RequestMethod.GET)
-    @Secured({"ROLE_ADMIN"})
+//    @Secured({"ROLE_ADMIN"})
     public ResponseEntity<Page<UserDTO>> getAll(Pageable pageable) {
         Page<User> user = userService.findAll(pageable);
         Page<UserDTO> users = user.map(new Function<User, UserDTO>() {

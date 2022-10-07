@@ -25,7 +25,7 @@ public class AdministratorLogger {
     public void loggedActionAdministratora(JoinPoint jp){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
-        administratorLogService.save(new AdministratorLog(null, username, jp.getSignature().toLongString(), "Administratorska akcija", LocalDateTime.now()));
+        administratorLogService.save(new AdministratorLog(null, username, jp.getSignature().toLongString(), "Admin action", LocalDateTime.now()));
     }
 
 }

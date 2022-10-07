@@ -29,7 +29,7 @@ import java.util.HashSet;
 @Controller
 @CrossOrigin(origins = "http://localhost:4200") //Napravi proxy na frontu
 @RequestMapping("/api")
-public class LoginController { //TODO:RAspodeliti uloge prilikom register: ROLE_ADMIN, ROLE_KUPAC
+public class LoginController { //TODO:RAspodeliti uloge prilikom register: ROLE_ADMIN...
 
     @Autowired
     private AuthenticationManager authenticationManager;
