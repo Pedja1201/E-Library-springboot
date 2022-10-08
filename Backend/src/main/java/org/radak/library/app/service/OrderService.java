@@ -14,9 +14,9 @@ public class OrderService {
     @Autowired
     private OrderRepository orderRepository;
 
-//    public Iterable<Order> findAll() {
-//        return orderRepository.findAll();
-//    }
+    public Iterable<Order> findAll() {
+        return orderRepository.findAll();
+    }
 
     public Page<Order> findAll(Pageable pageable) {
         return orderRepository.findAll(pageable);

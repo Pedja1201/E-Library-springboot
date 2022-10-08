@@ -18,9 +18,9 @@ public class Order {
     @Temporal(TemporalType.DATE)
     private Date dateOrder;
 
-    @ManyToOne()
+    @ManyToOne
     private Customer customer;
-    @ManyToOne()
+    @ManyToOne
     private Book book;
 
     public Order() {super();

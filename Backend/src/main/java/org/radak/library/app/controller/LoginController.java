@@ -1,11 +1,14 @@
 package org.radak.library.app.controller;
 
 import org.radak.library.app.dto.AdminDTO;
+import org.radak.library.app.dto.CustomerDTO;
 import org.radak.library.app.dto.TokenDTO;
 import org.radak.library.app.dto.UserDTO;
 import org.radak.library.app.model.Admin;
+import org.radak.library.app.model.Customer;
 import org.radak.library.app.model.UserPermission;
 import org.radak.library.app.service.AdminService;
+import org.radak.library.app.service.CustomerService;
 import org.radak.library.app.service.PermissionService;
 import org.radak.library.app.utils.TokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +45,8 @@ public class LoginController { //TODO:RAspodeliti uloge prilikom register: ROLE_
 
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private CustomerService customerService;
 
     @Autowired
     private PermissionService permissionService;
@@ -91,5 +96,27 @@ public class LoginController { //TODO:RAspodeliti uloge prilikom register: ROLE_
                 new AdminDTO(newAdmin.getId(), newAdmin.getUsername(), null,
                         newAdmin.getFirstName(), newAdmin.getLastName(),
                         newAdmin.getEmail(), newAdmin.getUcin() ), HttpStatus.OK);
+    }
+
+    @RequestMapping(path = "/registerCustomer", method = RequestMethod.POST)
+    public ResponseEntity<CustomerDTO> registerCustomer(@RequestBody CustomerDTO customer) {
+        // Novi korisnik se registruje kreiranjem instance korisnika
+        // cija je lozinka enkodovana.
+        Customer newCustomer = new Customer(null, customer.getUsername(),
+                passwordEncoder.encode(customer.getPassword()), customer.getFirstName(), customer.getLastName(),
+                customer.getDateOfBirth(), customer.getEmail(), customer.getPhoneNumber(),customer.getPlace(),
+                customer.getAddress());
+        newCustomer = customerService.save(newCustomer);
+        // Dodavanje prava pristupa.
+        newCustomer.setUserPermissions(new HashSet<UserPermission>());
+        newCustomer.getUserPermissions()                                //Trazimo id=2 zato sto je customer  (ROLE_CUSTOMER)
+                .add(new UserPermission(null, newCustomer, permissionService.findOne(2l).get()));
+        customerService.save(newCustomer);
+
+        return new ResponseEntity<CustomerDTO>(
+                new CustomerDTO(newCustomer.getId(), newCustomer.getUsername(), null,
+                        newCustomer.getFirstName(), newCustomer.getLastName(),newCustomer.getDateOfBirth(),
+                        newCustomer.getEmail(),newCustomer.getPhoneNumber(),
+                        newCustomer.getPlace(), newCustomer.getAddress()), HttpStatus.OK);
     }
 }
