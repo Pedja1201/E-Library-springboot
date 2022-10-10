@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from './services/auth/login.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FrontLibrary';
+
+  constructor(public loginService : LoginService){}
+
+  ngOnInit(){
+    this.loginService.isLoggedIn()
+  }
 }

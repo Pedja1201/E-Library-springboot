@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+.screen {
+    padding:1%
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.row-justify-center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-justify-end{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    column-gap: 0.5vw;
+}
+
+.row-justify-between{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.plus-btn{
+    width: 1.2vw;
+    height: 1.2vw;
+    background-color: white;
+    color: #198754;
+    text-align: center;
+    border-radius: 100px;
+}
+
+.delete-icon{
+    color: red;
+}
+
+.btn-hover:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.nav {
+    padding:0.3%;
+}
+.alert-message{
+    color: red;
+    font-size: small;
+}
+
+.alert-message-row{
+    width: 80%;
+
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
