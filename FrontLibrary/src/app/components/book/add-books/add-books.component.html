@@ -1,1 +1,63 @@
-<p>add-books works!</p>
+<div class='card p-3 bg-light'>
+    <mat-stepper [linear]="isLinear" #stepper>
+        <form ngNativeValidate>
+            <mat-step [stepControl]="firstFormGroup">
+                <ng-template matStepLabel>Primary data</ng-template>
+                <mat-form-field appearance="outline">
+                    <mat-label>Name:</mat-label>
+                    <input matInput name="name" [(ngModel)]="book.name" type="text" placeholder="Enter Name" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Author:</mat-label>
+                    <input matInput name="author" [(ngModel)]="book.author" type="text" placeholder="Enter author"
+                        required>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Category: </mat-label>
+                    <input matInput name="category" [(ngModel)]="book.category" type="text" placeholder="Enter category"
+                        required>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Price: </mat-label>
+                    <input matInput name="price" [(ngModel)]="book.price" type="number" placeholder="Enter price"
+                        required>
+                </mat-form-field>
+                <div *ngIf="errorMessage != ''" class="alert-message w-100 m-2">
+                    <div class="alert-message-row w-100 m-2">
+                        {{errorMessage}}
+                    </div>
+                </div>
+
+                <mat-form-field appearance="outline">
+                    <input [(ngModel)]="book.status" type="checkbox" class="form-check-input" id="status" name="status">
+                    <label class="form-check-label" for="active">Book is active status?</label>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <label class="form-label"> Library: </label>
+                    <select class="form-control" name="library" [(ngModel)]="book.library" required>
+                        <option *ngFor="let library of libraries" [ngValue]="library">
+                            {{ library.name }}
+                        </option>
+                    </select>
+                </mat-form-field>
+
+
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                <p>You are now done.</p>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button (click)="stepper.reset()">Reset</button>
+                    <button mat-raised-button color="primary" (click)="create(book)">Submit</button>
+                </div>
+            </mat-step>
+        </form>
+    </mat-stepper>

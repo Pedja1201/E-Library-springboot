@@ -1,17 +1,17 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormGroupDirective, FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Admin } from 'src/app/model/admin';
+import { Customer } from 'src/app/model/customer';
 import { LoginService } from 'src/app/services/auth/login.service';
 import { CustomValidators } from 'src/app/validators/auth/custom-validators';
 
 @Component({
-  selector: 'app-form-signup',
-  templateUrl: './form-signup.component.html',
-  styleUrls: ['./form-signup.component.css']
+  selector: 'app-form-signup-customer',
+  templateUrl: './form-signup-customer.component.html',
+  styleUrls: ['./form-signup-customer.component.css']
 })
-export class FormSignupComponent implements OnInit {
-  user: Admin = new Admin();
+export class FormSignupCustomerComponent implements OnInit {
+  user: Customer = new Customer();
   @Input()
   errorMessage : string = '';
 
@@ -28,8 +28,11 @@ export class FormSignupComponent implements OnInit {
     "confirmPassword": new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(30)]),
     "firstName": new FormControl('', [Validators.required]),
     "lastName": new FormControl('', [Validators.required]),
+    "dateOfBirth": new FormControl('', [Validators.required]),
     "email": new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"), Validators.minLength(6), Validators.maxLength(40)]),
-    "ucin": new FormControl('', [Validators.required])
+    "phoneNumber": new FormControl('', [Validators.required]),
+    "place": new FormControl('', [Validators.required]),
+    "address": new FormControl('', [Validators.required])
   }, [CustomValidators.MatchValidator('password', 'confirmPassword')]
   )
 
@@ -48,8 +51,11 @@ export class FormSignupComponent implements OnInit {
     this.forma.get("confirmPassword")?.setValue(this.user?.id);
     this.forma.get("firstName")?.setValue(this.user?.id);
     this.forma.get("lastName")?.setValue(this.user?.id);
+    this.forma.get("dateOfBirth")?.setValue(this.user?.id);
     this.forma.get("email")?.setValue(this.user?.id);
-    this.forma.get("ucin")?.setValue(this.user?.id);
+    this.forma.get("phoneNumber")?.setValue(this.user?.id);
+    this.forma.get("place")?.setValue(this.user?.id);
+    this.forma.get("address")?.setValue(this.user?.id);
   
   }
 

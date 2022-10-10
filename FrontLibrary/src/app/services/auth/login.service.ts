@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
+import { Admin } from 'src/app/model/admin';
+import { Customer } from 'src/app/model/customer';
 import { Token } from 'src/app/model/token';
 import { User } from 'src/app/model/user';
 
@@ -32,8 +34,11 @@ export class LoginService {
     );
   }
 
-  signupUser(user:User) : Observable<string>{ 
-    return this.client.post<string>(`${this.baseUrl}/signup`, user)
+  signupAdmin(user:Admin) : Observable<string>{ 
+    return this.client.post<string>(`${this.baseUrl}/registerAdmin`, user)
+  }
+  signupCustomer(user:Customer) : Observable<string>{ 
+    return this.client.post<string>(`${this.baseUrl}/registerCustomer`, user)
   }
 
   logout() {

@@ -1,1 +1,12 @@
-<p>signup works!</p>
+<div>
+    <h2>Registration</h2>
+    <mat-tab-group>
+
+        <mat-tab label="Register Customer" *ngIf="loginService.isLoggedIn()">
+            <app-form-signup-customer (createEvent)="createCustomer($event)"></app-form-signup-customer>
+        </mat-tab>
+        <mat-tab label="Register Administrator"  *ngIf="loginService.isLoggedIn()">
+            <app-form-signup (createEvent)="createAdmin($event)"></app-form-signup>
+        </mat-tab>
+    </mat-tab-group>
+</div>

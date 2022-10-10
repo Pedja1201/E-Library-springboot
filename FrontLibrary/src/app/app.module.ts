@@ -6,6 +6,18 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatListModule} from '@angular/material/list';
+import {MatTableModule} from '@angular/material/table';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AddLibrariesComponent } from './components/library/add-libraries/add-libraries.component';
@@ -26,6 +38,7 @@ import { AllUserComponent } from './components/user/all-user/all-user.component'
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { FormSignupComponent } from './components/auth/signup/form-signup/form-signup.component';
+import { FormSignupCustomerComponent } from './components/auth/signup/form-signup-customer/form-signup-customer.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +60,8 @@ import { FormSignupComponent } from './components/auth/signup/form-signup/form-s
     AllUserComponent,
     LoginComponent,
     SignupComponent,
-    FormSignupComponent
+    FormSignupComponent,
+    FormSignupCustomerComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +71,17 @@ import { FormSignupComponent } from './components/auth/signup/form-signup/form-s
     NgbModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatSnackBarModule,
+    MatListModule,
+    MatTableModule,
+    MatTabsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}

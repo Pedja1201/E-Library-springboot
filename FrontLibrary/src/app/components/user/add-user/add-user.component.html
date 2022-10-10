@@ -1,1 +1,24 @@
-<p>add-user works!</p>
+<div class = 'card p-3 bg-light'>
+    <form (submit)="createUser(user)" ngNativeValidate>
+      <h2 style="text-align: center;"><i>Add User</i></h2>
+      <div class=" col-sm-6">
+        <label class="form-label">Username: </label>
+        <input name="username" [(ngModel)]="user.username" class="form-control" type="text" placeholder="username" required>
+        <div *ngIf="errorMessage != ''" class="alert-message w-100 m-2">
+          <div class="alert-message-row w-100 m-2">
+            {{errorMessage}}
+          </div>
+        </div>
+      </div>
+  
+      <div class=" col-sm-6">
+        <label class="form-label">Password: </label>
+        <input name="password" [(ngModel)]="user.password" class="form-control" type="password" placeholder="password" required>
+      </div>
+  
+      <div>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button (click) = "goBackUsers()" type="submit" class="btn btn-secondary m-2">Cancel</button>
+      </div>
+    </form>
+  </div>
