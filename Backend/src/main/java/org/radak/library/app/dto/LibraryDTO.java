@@ -7,7 +7,7 @@ public class LibraryDTO {
     private Long id;
     private String name;
     private String address;
-    private String phone_number;
+    private String phoneNumber;
     private String email;
 
     private ArrayList<BookDTO> books = new ArrayList<BookDTO>();
@@ -15,11 +15,11 @@ public class LibraryDTO {
     public LibraryDTO() {super();
     }
 
-    public LibraryDTO(Long id, String name, String address, String phone_number, String email, ArrayList<BookDTO> books) {
+    public LibraryDTO(Long id, String name, String address, String phoneNumber, String email, ArrayList<BookDTO> books) {
         this.id = id;
         this.name = name;
         this.address = address;
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
         this.email = email;
         this.books = books;
     }
@@ -48,12 +48,12 @@ public class LibraryDTO {
         this.address = address;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {

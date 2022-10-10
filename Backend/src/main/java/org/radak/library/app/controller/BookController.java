@@ -34,7 +34,7 @@ public class BookController {
                 BookDTO bookDTO = new BookDTO(book.getId(), book.getName(),
                         book.getAuthor(),book.getCategory(),book.getPrice(),book.getStatus(),
                         new LibraryDTO(book.getLibrary().getId(), book.getLibrary().getName(),
-                                book.getLibrary().getAddress(),book.getLibrary().getPhone_number(),book.getLibrary().getEmail(),null)
+                                book.getLibrary().getAddress(),book.getLibrary().getPhoneNumber(),book.getLibrary().getEmail(),null)
                 );
                 // Conversion logic
 
@@ -52,7 +52,7 @@ public class BookController {
             BookDTO bookDTO = new BookDTO(book.get().getId(),book.get().getName(),
                     book.get().getAuthor(),book.get().getCategory(),book.get().getPrice(),book.get().getStatus(),
                     new LibraryDTO(book.get().getLibrary().getId(),book.get().getLibrary().getName(),
-                            book.get().getLibrary().getAddress(), book.get().getLibrary().getPhone_number(),book.get().getLibrary().getEmail(),null));
+                            book.get().getLibrary().getAddress(), book.get().getLibrary().getPhoneNumber(),book.get().getLibrary().getEmail(),null));
 
             return new ResponseEntity<BookDTO>(bookDTO, HttpStatus.OK);
         }
@@ -65,7 +65,7 @@ public class BookController {
         try {
             bookService.save(book);
             LibraryDTO libraryDTO =  new LibraryDTO(book.getLibrary().getId(), book.getLibrary().getName(), book.getLibrary().getAddress(),
-                    book.getLibrary().getPhone_number(), book.getLibrary().getEmail(),  null);;
+                    book.getLibrary().getPhoneNumber(), book.getLibrary().getEmail(),  null);;
 
             BookDTO bookDTO = new BookDTO(book.getId(), book.getName(),book.getAuthor(),
                     book.getCategory(),book.getPrice(),book.getStatus(),libraryDTO);
@@ -86,7 +86,7 @@ public class BookController {
             updatedBook.setId(bookId);
             bookService.save(updatedBook);
             LibraryDTO libraryDTO =  new LibraryDTO(updatedBook.getLibrary().getId(), updatedBook.getLibrary().getName(), updatedBook.getLibrary().getAddress(),
-                    updatedBook.getLibrary().getPhone_number(), updatedBook.getLibrary().getEmail(), null);
+                    updatedBook.getLibrary().getPhoneNumber(), updatedBook.getLibrary().getEmail(), null);
 
             BookDTO bookDTO = new BookDTO(updatedBook.getId(), updatedBook.getName(),updatedBook.getAuthor(),
                     updatedBook.getCategory(),updatedBook.getPrice(), updatedBook.getStatus(), libraryDTO);

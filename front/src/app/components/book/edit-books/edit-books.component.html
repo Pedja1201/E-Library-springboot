@@ -1,0 +1,43 @@
+<div class='card p-3 bg-light'>
+    <form (submit)="update(book)" ngNativeValidate>
+        <h2 style="text-align: center;"><i>Edit Form</i></h2>
+        <div class=" col-sm-6">
+            <label class="form-label">Name: </label>
+            <input name="name" [(ngModel)]="book.name" class="form-control" type="text">
+        </div>
+
+        <div class=" col-sm-6">
+            <label class="form-label">Author: </label>
+            <input name="author" [(ngModel)]="book.author" class="form-control" type="text">
+        </div>
+
+        <div class=" col-sm-6">
+            <label class="form-label">Category: </label>
+            <input name="category" [(ngModel)]="book.category" class="form-control" type="text">
+        </div>
+
+        <div class=" col-sm-6">
+            <label class="form-label">Price: </label>
+            <input name="price" [(ngModel)]="book.price" class="form-control" type="number" step="0,5">
+        </div>
+
+        <div class="form-check form-row">
+            <input [(ngModel)]="book.status" type="checkbox" class="form-check-input" id="status" name="status">
+            <label class="form-check-label" for="active">Book is active status?</label>
+        </div>
+
+        <div class="form-check form-row">
+            <label class="form-label"> Library: </label>
+            <select class="form-control" name="library" [compareWith]="comparator" [(ngModel)]="book.library" required>
+                <option *ngFor="let library of libraries" [ngValue]="library">
+                    {{ library.name }}
+                </option>
+            </select>
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button (click)="goBack()" type="submit" class="btn btn-secondary m-2">Cancel</button>
+        </div>
+    </form>
+</div>

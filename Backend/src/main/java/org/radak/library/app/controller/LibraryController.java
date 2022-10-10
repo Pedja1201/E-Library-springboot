@@ -32,7 +32,7 @@ public class LibraryController {
         Page<Library> libraries = libraryService.findAll(pageable);
         return new ResponseEntity<Page<LibraryDTO>>(
                 libraries.map(library -> new LibraryDTO(library.getId(), library.getName(),library.getAddress(),
-                        library.getPhone_number(),library.getEmail(),
+                        library.getPhoneNumber(),library.getEmail(),
                         (ArrayList<BookDTO>) library.getBooks().stream()
                                 .map(book -> new BookDTO(book.getId(), book.getName(),
                                         book.getAuthor(),book.getCategory(),book.getPrice(),
@@ -52,7 +52,7 @@ public class LibraryController {
                         book.getCategory(), book.getPrice(),book.getStatus(),null));
             }
             libraryDTO = new LibraryDTO(library.get().getId(), library.get().getName(),
-                    library.get().getAddress(), library.get().getPhone_number(),
+                    library.get().getAddress(), library.get().getPhoneNumber(),
                     library.get().getEmail(), books);
 
             return new ResponseEntity<LibraryDTO>(libraryDTO, HttpStatus.OK);
@@ -72,7 +72,7 @@ public class LibraryController {
                         book.getCategory(),book.getPrice(),book.getStatus(),null));
             }
             LibraryDTO libraryDTO = new LibraryDTO(library.getId(), library.getName(),
-                    library.getAddress(),library.getPhone_number(),library.getEmail(),books);
+                    library.getAddress(),library.getPhoneNumber(),library.getEmail(),books);
             return new ResponseEntity<LibraryDTO>(libraryDTO, HttpStatus.CREATED);
         } catch (Exception e) {
             e.printStackTrace();
@@ -95,7 +95,7 @@ public class LibraryController {
                         book.getCategory(),book.getPrice(),book.getStatus(),null));
             }
             LibraryDTO libraryDTO = new LibraryDTO(updatedLibrary.getId(), updatedLibrary.getName(),
-                    updatedLibrary.getAddress(),updatedLibrary.getPhone_number(),
+                    updatedLibrary.getAddress(),updatedLibrary.getPhoneNumber(),
                         updatedLibrary.getEmail(), books);
             return new ResponseEntity<LibraryDTO>(libraryDTO, HttpStatus.OK);
         }

@@ -1,0 +1,21 @@
+.table {
+    width: 70%;
+  }
+  
+  h1{
+    margin-left: 20%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .table tr:nth-child(even){background-color: #ddd;}
+  
+  .table tr:hover {background-color: #ddd;}
+  
+  .table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+  }
+.edit{
+  color: rgb(189, 189, 31);
+}

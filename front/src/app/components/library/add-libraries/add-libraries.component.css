@@ -1,0 +1,19 @@
+div{
+    width: 70%;
+    margin: 4%;
+  }
+  form, h2{
+    margin-left: 10%;
+    padding: 30px;
+}
+.mat-stepper-horizontal {
+    margin-top: 8px;
+    width: 90%;
+    margin-left: 30px;
+  }
+  
+  .mat-form-field {
+    margin-top: 16px;
+    padding: 10px;
+  }
+  

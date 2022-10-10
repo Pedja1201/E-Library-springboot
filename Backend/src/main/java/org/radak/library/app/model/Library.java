@@ -15,7 +15,7 @@ public class Library {
     @Column(nullable = false)
     private String address;
     @Column(nullable = false)
-    private String phone_number;
+    private String phoneNumber;
     @Column(nullable = false, unique = true)
     private String email;
 
@@ -26,11 +26,11 @@ public class Library {
     public Library() {super();
     }
 
-    public Library(Long id, String name, String address, String phone_number, String email) {
+    public Library(Long id, String name, String address, String phoneNumber, String email) {
         this.id = id;
         this.name = name;
         this.address = address;
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
         this.email = email;
     }
 
@@ -58,12 +58,12 @@ public class Library {
         this.address = address;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {

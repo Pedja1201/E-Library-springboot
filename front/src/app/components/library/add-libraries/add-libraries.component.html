@@ -1,0 +1,55 @@
+<div class='card p-3 bg-light'>
+    <mat-stepper [linear]="isLinear" #stepper>
+      <form ngNativeValidate>
+        <mat-step [stepControl]="firstFormGroup">
+          <ng-template matStepLabel>Primary data</ng-template>
+          <mat-form-field appearance="outline">
+            <mat-label>Name:</mat-label>
+            <input matInput name="name" [(ngModel)]="library.name"  type="text"
+              placeholder="Enter Name" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline">
+            <mat-label>Address:</mat-label>
+            <input matInput name="address" [(ngModel)]="library.address"  type="text"
+              placeholder="Enter address" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline">
+            <mat-label>Phone number: </mat-label>
+            <input matInput name="phoneNumber" [(ngModel)]="library.phoneNumber"  type="text"
+              placeholder="Enter phone" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline">
+            <mat-label>E-mail: </mat-label>
+            <input matInput name="email" [(ngModel)]="library.email"  type="email"
+              placeholder="Enter email" required>
+          </mat-form-field>
+          <div *ngIf="errorMessage != ''" class="alert-message w-100 m-2">
+            <div class="alert-message-row w-100 m-2">
+              {{errorMessage}}
+            </div>
+          </div>
+  
+  
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+            <button mat-raised-button color="primary" (click)="create(library)">Dodaj</button>
+          </div>
+        </mat-step>
+      </form>
+    </mat-stepper>
+    <div>
+      <button (click)="goBack()" type="submit" class="btn btn-secondary m-2">Cancel</button>
+    </div>
+  
+  </div>
