@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Library } from 'src/app/model/library';
+import { Library, LibraryPage } from 'src/app/model/library';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,8 @@ export class LibrariesService {
 
   constructor(private client : HttpClient) { }
 
-  getAll() : Observable<Library[]>{
-    return this.client.get<Library[]>(this.baseUrl)
+  getAll(){
+    return this.client.get<LibraryPage<Library>>(this.baseUrl)
   }
 
   getOne(id : number){
@@ -27,7 +27,7 @@ export class LibrariesService {
     return this.client.put<Library[]>(`${this.baseUrl}/${id}`, library)
   }
 
-  delete(id:number){
-    return this.client.delete<Library[]>(`${this.baseUrl}/${id}`)
+  delete(lib:Library){
+    return this.client.delete<Library[]>(`${this.baseUrl}/${lib.id}`)
   }
 }

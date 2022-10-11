@@ -6,7 +6,7 @@
       <tr>
         <th>ID</th>
         <th>Username</th>
-        <th>Password</th>
+        <!-- <th>Password</th> -->
         <th>Action
           <svg (click)="addUserForm()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
             class="bi bi-plus-square-fill plus-btn plus btn-hover" viewBox="0 0 16 16">
@@ -20,12 +20,12 @@
       <tr *ngFor="let u of users; let i = index">
         <td>{{i}}</td>
         <td>{{u["username"]}}</td>
-        <td><span *ngIf="u['password']; else praznoPolje">{{u["password"]}}</span></td>
+        <!-- <td><span *ngIf="u['password']; else praznoPolje">{{u["password"]}}</span></td> -->
         <td style="text-align: center;">
           <button mat-icon-button class="edit btn-hover" (click)="edit(u)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button class="btn-hover" color="warn" (click)="delete(u.id)">
+          <button mat-icon-button class="btn-hover" color="warn" (click)="delete(u)">
             <mat-icon>delete</mat-icon>
           </button>
       </td>

@@ -11,14 +11,12 @@ import { LibrariesService } from 'src/app/services/library/libraries.service';
 })
 export class EditLibrariesComponent implements OnInit {
   library : Library = new Library();
-  libraryId : number | null = 0;
   errorMessage : string = '';
 
   constructor(
     private service: LibrariesService,
     private route: ActivatedRoute,
     private router: Router,
-    private location: Location,
     public loginService : LoginService) { }
 
 

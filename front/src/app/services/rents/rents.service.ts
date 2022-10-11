@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Rent } from 'src/app/model/rent';
+import { Rent, RentPage } from 'src/app/model/rent';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,8 @@ export class RentsService {
 
   constructor(private client : HttpClient) { }
 
-  getAll() : Observable<Rent[]>{
-    return this.client.get<Rent[]>(this.baseUrl)
+  getAll() {
+    return this.client.get<RentPage<Rent>>(this.baseUrl)
   }
 
   getOne(id : number){
@@ -28,7 +28,7 @@ export class RentsService {
     return this.client.put<Rent[]>(`${this.baseUrl}/${id}`, rent)
   }
 
-  delete(id:number){
-    return this.client.delete<Rent[]>(`${this.baseUrl}/${id}`)
+  delete(rent:Rent){
+    return this.client.delete<Rent[]>(`${this.baseUrl}/${rent.id}`)
   }
 }

@@ -1,1 +1,65 @@
-<p>add-rents works!</p>
+    <div class='card p-3 bg-light'>
+        <form (submit)="create(rent)" ngNativeValidate>
+            <h2 style="text-align: center;"><i>Add Rents</i></h2>
+            <div class=" col-sm-6">
+                <mat-label>Quantity:</mat-label>
+                <input matInput class="form-control" name="quantity" [(ngModel)]="rent.quantity" type="text"
+                    placeholder="Enter quantity" required>
+            </div>
+
+            <div class=" col-sm-6">
+                <mat-label>Payment:</mat-label>
+                <input matInput class="form-control" name="payment" [(ngModel)]="rent.payment" type="text"
+                    placeholder="Enter payment" required>
+            </div>
+
+            <div class=" col-sm-6">
+                <mat-label>Currency: </mat-label>
+                <input matInput class="form-control" name="currency" [(ngModel)]="rent.currency" type="text"
+                    placeholder="Enter currency" required>
+                <div *ngIf="errorMessage != ''" class="alert-message w-100 m-2">
+                    <div class="alert-message-row w-100 m-2">
+                        {{errorMessage}}
+                    </div>
+                </div>
+            </div>
+
+            <div class=" col-sm-6">
+                <mat-label>Rental order: </mat-label>
+                <input matInput class="form-control" name="rentalOrder" [(ngModel)]="rent.rentalOrder" type="date"
+                    required>
+            </div>
+
+            <div class=" col-sm-6">
+                <mat-label>Rental order: </mat-label>
+                <input matInput class="form-control" name="rentalOrder" [(ngModel)]="rent.rentalOrder" type="date"
+                    required>
+            </div>
+
+            <div class=" col-sm-6">
+                <mat-label>Date order: </mat-label>
+                <input matInput class="form-control" name="dateOrder" [(ngModel)]="rent.dateOrder" type="date" required>
+            </div>
+
+            <div class=" col-sm-6">
+                <label class="form-label"> Customer: </label>
+                <select class="form-control" name="customer" [(ngModel)]="rent.customer" required>
+                    <option *ngFor="let customer of customers" [ngValue]="customer">
+                        {{ customer.email }}
+                    </option>
+                </select>
+            </div>
+
+            <div class=" col-sm-6">
+                <label class="form-label"> Book: </label>
+                <select class="form-control" name="book" [(ngModel)]="rent.book" required>
+                    <option *ngFor="let book of books" [ngValue]="book">
+                        {{ book.name }}
+                    </option>
+                </select>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-success">Submit</button>
+                <button (click)="goBack()" type="submit" class="btn btn-secondary m-2">Cancel</button>
+            </div>

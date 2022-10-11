@@ -60,7 +60,7 @@ public class LibraryController {
         return new ResponseEntity<LibraryDTO>(HttpStatus.NOT_FOUND);
     }
 
-    @LoggedAdministrator
+//    @LoggedAdministrator
     @RequestMapping(path = "", method = RequestMethod.POST)
 //    @Secured({"ROLE_ADMIN"})
     public ResponseEntity<LibraryDTO> create(@RequestBody Library library) {
@@ -80,7 +80,7 @@ public class LibraryController {
         return new ResponseEntity<LibraryDTO>(HttpStatus.BAD_REQUEST);
     }
 
-    @LoggedAdministrator
+//    @LoggedAdministrator
     @RequestMapping(path = "/{libraryId}", method = RequestMethod.PUT)
 //    @Secured({"ROLE_ADMIN"})
     public ResponseEntity<LibraryDTO> update(@PathVariable("libraryId") Long libraryId,
@@ -102,7 +102,7 @@ public class LibraryController {
         return new ResponseEntity<LibraryDTO>(HttpStatus.NOT_FOUND);
     }
 
-    @LoggedAdministrator
+//    @LoggedAdministrator
     @RequestMapping(path = "/{libraryId}", method = RequestMethod.DELETE)
 //    @Secured({"ROLE_ADMIN"})
     public ResponseEntity<LibraryDTO> delete(@PathVariable("libraryId") Long libraryId) {

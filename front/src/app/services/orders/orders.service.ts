@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Order } from 'src/app/model/order';
+import { Order, OrderPage } from 'src/app/model/order';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,8 @@ export class OrdersService {
 
   constructor(private client : HttpClient) { }
 
-  getAll() : Observable<Order[]>{
-    return this.client.get<Order[]>(this.baseUrl)
+  getAll() {
+    return this.client.get<OrderPage<Order>>(this.baseUrl)
   }
 
   getOne(id : number){
@@ -28,7 +28,7 @@ export class OrdersService {
     return this.client.put<Order[]>(`${this.baseUrl}/${id}`, order)
   }
 
-  delete(id:number){
-    return this.client.delete<Order[]>(`${this.baseUrl}/${id}`)
+  delete(ord:Order){
+    return this.client.delete<Order[]>(`${this.baseUrl}/${ord.id}`)
   }
 }

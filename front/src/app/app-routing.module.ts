@@ -26,23 +26,23 @@ const routes: Routes = [
 
   {path: 'users', component: AllUserComponent, canActivate:[AuthGuard]},
   {path : 'add-users', component : AddUserComponent},
-  {path: 'edit-users/:_id', component: EditUserComponent, canActivate:[AuthGuard]},
+  {path: 'edit-users/:id', component: EditUserComponent, canActivate:[AuthGuard]},
 
   {path: 'libraries', component: AllLibrariesComponent, canActivate:[AuthGuard]},
   {path : 'add-library', component : AddLibrariesComponent},
-  {path: 'edit-library/:_id', component: EditLibrariesComponent, canActivate:[AuthGuard]},
+  {path: 'edit-library/:id', component: EditLibrariesComponent, canActivate:[AuthGuard]},
 
   {path: 'books', component: AllBooksComponent, canActivate:[AuthGuard]},
   {path : 'add-book', component : AddBooksComponent},
-  {path: 'edit-book/:_id', component: EditBooksComponent, canActivate:[AuthGuard]},
+  {path: 'edit-book/:id', component: EditBooksComponent, canActivate:[AuthGuard]},
 
   {path: 'rents', component: AllRentsComponent, canActivate:[AuthGuard]},
   {path : 'add-rent', component : AddRentsComponent},
-  {path: 'edit-rent/:_id', component: EditRentsComponent, canActivate:[AuthGuard]},
+  {path: 'edit-rent/:id', component: EditRentsComponent, canActivate:[AuthGuard]},
 
   {path: 'orders', component: AllOrdersComponent, canActivate:[AuthGuard]},
   {path : 'add-order', component : AddOrdersComponent},
-  {path: 'edit-order/:_id', component: EditOrdersComponent, canActivate:[AuthGuard]},
+  {path: 'edit-order/:id', component: EditOrdersComponent, canActivate:[AuthGuard]},
 ];
 
 @NgModule({

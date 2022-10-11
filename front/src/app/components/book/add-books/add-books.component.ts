@@ -16,7 +16,7 @@ export class AddBooksComponent implements OnInit {
   book : Book = new Book();
   libraries: Library[] = [];
   errorMessage : string = '';
-  @ViewChild(FormGroupDirective) formGroupDirective: FormGroupDirective | undefined;
+  // @ViewChild(FormGroupDirective) formGroupDirective: FormGroupDirective | undefined;
 
   isLinear = false;
   firstFormGroup = this._formBuilder.group({
@@ -32,9 +32,6 @@ export class AddBooksComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.bookService.getAll().subscribe((books: Book[]) => {
-    //   this.books = books;
-    // });
   }
 
   create(book: Book) {

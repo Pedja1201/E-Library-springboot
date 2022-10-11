@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from 'src/app/model/user';
+import { User, UserPage } from 'src/app/model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,8 @@ export class UsersService {
 
   constructor(private client : HttpClient) { }
 
-  getAll() : Observable<User[]>{
-    return this.client.get<User[]>(this.baseUrl)
+  getAll() {
+    return this.client.get<UserPage<User>>(this.baseUrl)
   }
 
   getOne(id : number){
@@ -28,7 +28,7 @@ export class UsersService {
     return this.client.put<User[]>(`${this.baseUrl}/${id}`, user)
   }
 
-  delete(id:number){
-    return this.client.delete<User[]>(`${this.baseUrl}/${id}`)
+  delete(us:User){
+    return this.client.delete<User[]>(`${this.baseUrl}/${us.id}`)
   }
 }

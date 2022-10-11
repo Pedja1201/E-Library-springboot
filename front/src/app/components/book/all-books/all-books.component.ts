@@ -25,12 +25,12 @@ export class AllBooksComponent implements OnInit {
 
   getAll() {
     this.service.getAll().subscribe({
-      next: (value: any) => { this.books = value }
+      next: (value: any) => { this.books = value.content }
     });
   }
 
 
-  delete = (book: number) => {
+  delete = (book: Book) => {
     this.service.delete(book)
       .subscribe(resp => this.getAll());
   }

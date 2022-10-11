@@ -26,12 +26,12 @@ export class AllLibrariesComponent implements OnInit {
 
   getAll() {
     this.service.getAll().subscribe({
-      next: (value: any) => { this.libraries = value }
+      next: (value: any) => { this.libraries = value.content }
     });
   }
 
 
-  delete = (lib: number) => {
+  delete = (lib: Library) => {
     this.service.delete(lib)
       .subscribe(resp => this.getAll());
   }

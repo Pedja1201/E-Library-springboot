@@ -1,3 +1,6 @@
+export interface UserPage<User> {
+    content: User[];
+  }
 export class User { 
     id:number;
     username:string;

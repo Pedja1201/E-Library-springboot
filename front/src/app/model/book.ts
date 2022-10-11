@@ -1,4 +1,7 @@
 import { Library } from "./library";
+export interface BookPage<Book> {
+    content: Book[];
+  }
 
 export class Book {
     id: number;

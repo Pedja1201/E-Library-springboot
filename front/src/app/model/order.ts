@@ -1,6 +1,9 @@
 import { Book } from "./book";
 import { Customer } from "./customer";
 
+export interface OrderPage<Order> {
+    content: Order[];
+  }
 export class Order {
     id: number;
     quantity : number;

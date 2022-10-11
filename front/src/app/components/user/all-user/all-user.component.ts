@@ -20,12 +20,12 @@ export class AllUserComponent implements OnInit {
 
   getAll() {
     this.service.getAll().subscribe({
-      next: (value: any) => { this.users = value }
+      next: (value: any) => { this.users = value.content }
     });
   }
 
 
-  delete = (us: number) => {
+  delete = (us: User) => {
     this.service.delete(us)
       .subscribe(resp => this.getAll());
   }

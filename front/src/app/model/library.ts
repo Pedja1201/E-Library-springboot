@@ -1,3 +1,6 @@
+export interface LibraryPage<Library> {
+    content: Library[];
+  }
 export class Library {
 
         id: number;

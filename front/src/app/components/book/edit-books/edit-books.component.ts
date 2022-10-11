@@ -23,7 +23,10 @@ export class EditBooksComponent implements OnInit {
 
 
   ngOnInit(): void {
-  
+    let bookId = Number(this.route.snapshot.paramMap.get("id"));
+    this.service.getOne(bookId).subscribe((value: any) => {
+      this.book = value;
+    })
   }
 
 

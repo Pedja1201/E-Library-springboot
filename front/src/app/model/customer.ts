@@ -1,3 +1,6 @@
+export interface CustomerPage<Customer> {
+    content: Customer[];
+  }
 export class Customer {
     id: number;
     firstName : string;

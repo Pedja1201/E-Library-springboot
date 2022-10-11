@@ -1,1 +1,55 @@
-<p>add-orders works!</p>
+<div class='card p-3 bg-light'>
+    <form (submit)="create(order)" ngNativeValidate>
+        <h2 style="text-align: center;"><i>Add Orders</i></h2>
+        <div class=" col-sm-6">
+            <mat-label>Quantity:</mat-label>
+            <input matInput class="form-control" name="quantity" [(ngModel)]="order.quantity" type="text"
+                placeholder="Enter quantity" required>
+        </div>
+
+        <div class=" col-sm-6">
+            <mat-label>Payment:</mat-label>
+            <input matInput class="form-control" name="payment" [(ngModel)]="order.payment" type="text"
+                placeholder="Enter payment" required>
+        </div>
+
+        <div class=" col-sm-6">
+            <mat-label>Currency: </mat-label>
+            <input matInput class="form-control" name="currency" [(ngModel)]="order.currency" type="text"
+                placeholder="Enter currency" required>
+            <div *ngIf="errorMessage != ''" class="alert-message w-100 m-2">
+                <div class="alert-message-row w-100 m-2">
+                    {{errorMessage}}
+                </div>
+            </div>
+        </div>
+
+
+        <div class=" col-sm-6">
+            <mat-label>Date order: </mat-label>
+            <input matInput class="form-control" name="dateOrder" [(ngModel)]="order.dateOrder" type="date" required>
+        </div>
+
+
+        <div class=" col-sm-6">
+            <label class="form-label"> Customer: </label>
+            <select class="form-control" name="customer" [(ngModel)]="order.customer" required>
+                <option *ngFor="let customer of customers" [ngValue]="customer">
+                    {{ customer.email }}
+                </option>
+            </select>
+        </div>
+
+        <div class=" col-sm-6">
+            <label class="form-label"> Book: </label>
+            <select class="form-control" name="book" [(ngModel)]="order.book" required>
+                <option *ngFor="let book of books" [ngValue]="book">
+                    {{ book.name }}
+                </option>
+            </select>
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button (click)="goBack()" type="submit" class="btn btn-secondary m-2">Cancel</button>
+        </div>

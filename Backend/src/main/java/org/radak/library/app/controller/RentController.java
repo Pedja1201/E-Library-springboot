@@ -25,7 +25,7 @@ public class RentController {
     @Autowired
     private RentService rentService;
 
-    @Logged
+//    @Logged
     @RequestMapping(path = "", method = RequestMethod.GET)
 //    @Secured({"ROLE_ADMIN"})
     public ResponseEntity<Page<RentDTO>> getAll(Pageable pageable) {

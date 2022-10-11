@@ -1,1 +1,47 @@
-<p>edit-orders works!</p>
+<div class='card p-3 bg-light'>
+    <form (submit)="update(order)" ngNativeValidate>
+        <h2 style="text-align: center;"><i>Edit Form</i></h2>
+        <div class=" col-sm-6">
+            <label class="form-label">Quantity: </label>
+            <input name="quantity" [(ngModel)]="order.quantity" class="form-control" type="text">
+        </div>
+
+        <div class=" col-sm-6">
+            <label class="form-label">Payment: </label>
+            <input name="payment" [(ngModel)]="order.payment" class="form-control" type="text">
+        </div>
+
+        <div class=" col-sm-6">
+            <label class="form-label">Currency: </label>
+            <input name="currency" [(ngModel)]="order.currency" class="form-control" type="text">
+        </div>
+
+        <div class=" col-sm-6">
+            <label class="form-label">Date Order: </label>
+            <input name="dateOrder" [(ngModel)]="order.dateOrder" class="form-control" type="date">
+        </div>
+
+
+        <div class="form-check form-row">
+            <label class="form-label"> Customer: </label>
+            <select class="form-control" name="customer" [compareWith]="comparator" [(ngModel)]="order.customer" >
+                <option *ngFor="let customer of customers" [ngValue]="customer">
+                    {{ customer.email }}
+                </option>
+            </select>
+        </div>
+        <div class="form-check form-row">
+            <label class="form-label"> Book: </label>
+            <select class="form-control" name="book" [compareWith]="comparator2" [(ngModel)]="order.book" required>
+                <option *ngFor="let book of books" [ngValue]="book">
+                    {{ book.name }}
+                </option>
+            </select>
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button (click)="goBack()" type="submit" class="btn btn-secondary m-2">Cancel</button>
+        </div>
+    </form>
+</div>
