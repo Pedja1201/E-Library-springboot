@@ -84,7 +84,6 @@ import { FormSignupCustomerComponent } from './components/auth/signup/form-signu
     MatTableModule,
     MatTabsModule,
     MatSelectModule,
-    // MatOptionModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}

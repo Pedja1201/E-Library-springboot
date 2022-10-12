@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroupDirective, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Book } from 'src/app/model/book';
-import { Customer } from 'src/app/model/customer';
+import { Book, BookPage } from 'src/app/model/book';
+import { Customer, CustomerPage } from 'src/app/model/customer';
 import { Order } from 'src/app/model/order';
 import { LoginService } from 'src/app/services/auth/login.service';
+import { BooksService } from 'src/app/services/books/books.service';
+import { CustomersService } from 'src/app/services/customers/customers.service';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 
 @Component({
@@ -27,11 +29,20 @@ export class AddOrdersComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private service: OrdersService,
+    private customersService: CustomersService,
+    private booksService: BooksService,
     private router: Router,
     public loginService : LoginService) { }
 
 
   ngOnInit(): void {
+    this.customersService.getAll().subscribe((customers : CustomerPage<Customer>) =>{
+      this.customers = customers.content;
+    });
+    this.booksService.getAll().subscribe((books : BookPage<Book>) =>{
+      this.books = books.content;
+    });
+  
   }
 
   create(order: Order) {

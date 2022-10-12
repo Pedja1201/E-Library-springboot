@@ -4,7 +4,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
-@Document(collection = "administratorLogs")
+@Document("administratorLogs")
 public class AdministratorLog {
     private String id;
     private String name;

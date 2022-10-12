@@ -17,8 +17,8 @@
       </tr>
     </thead>
     <tbody>                        
-      <tr *ngFor="let u of users; let i = index">
-        <td>{{i}}</td>
+      <tr *ngFor="let u of users">
+        <td>{{u.id}}</td>
         <td>{{u["username"]}}</td>
         <!-- <td><span *ngIf="u['password']; else praznoPolje">{{u["password"]}}</span></td> -->
         <td style="text-align: center;">

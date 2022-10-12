@@ -23,8 +23,17 @@
         </div>
 
         <div class=" col-sm-6">
-            <input [(ngModel)]="book.status" type="checkbox" id="status" name="status">
+            <mat-checkbox [(ngModel)]="book.status" type="checkbox" id="status" name="status"></mat-checkbox>
             <label class="form-check-label" for="active">Book is active status?</label>
+        </div>
+
+        <div class="col-sm-6">
+            <label class="form-label"> Library: </label>
+            <mat-select class="form-control" name="library" [(ngModel)]="book.library" required>
+                <mat-option *ngFor="let library of libraries" [value]="library">
+                    {{ library.name }}
+                </mat-option>
+            </mat-select>
         </div>
 
         <div>

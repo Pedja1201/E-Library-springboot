@@ -19,13 +19,12 @@ import java.util.Optional;
 import java.util.function.Function;
 
 @Controller
-//@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path = "/api/orders")
 public class OrderController {
     @Autowired
     private OrderService orderService;
 
-//    @Logged
+    @Logged
     @RequestMapping(path = "", method = RequestMethod.GET)
 //    @Secured({"ROLE_ADMIN"})
     public ResponseEntity<Page<OrderDTO>> getAll(Pageable pageable) {

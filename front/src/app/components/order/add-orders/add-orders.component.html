@@ -33,20 +33,20 @@
 
         <div class=" col-sm-6">
             <label class="form-label"> Customer: </label>
-            <select class="form-control" name="customer" [(ngModel)]="order.customer" required>
-                <option *ngFor="let customer of customers" [ngValue]="customer">
+            <mat-select class="form-control" name="customer" [(ngModel)]="order.customer" required>
+                <mat-option *ngFor="let customer of customers" [value]="customer">
                     {{ customer.email }}
-                </option>
-            </select>
+                </mat-option>
+            </mat-select>
         </div>
 
         <div class=" col-sm-6">
             <label class="form-label"> Book: </label>
-            <select class="form-control" name="book" [(ngModel)]="order.book" required>
-                <option *ngFor="let book of books" [ngValue]="book">
+            <mat-select class="form-control" name="book" [(ngModel)]="order.book" required>
+                <mat-option *ngFor="let book of books" [value]="book">
                     {{ book.name }}
-                </option>
-            </select>
+                </mat-option>
+            </mat-select>
         </div>
 
         <div>

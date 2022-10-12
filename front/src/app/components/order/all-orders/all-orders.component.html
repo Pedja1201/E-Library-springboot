@@ -21,8 +21,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let o of orders; let i = index">
-        <td>{{i}}</td>
+      <tr *ngFor="let o of orders;">
+        <td>{{o.id}}</td>
         <td>{{o.quantity}}</td>
         <td>{{o.payment}}</td>
         <td>{{o.currency}}</td>

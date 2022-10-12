@@ -31,32 +31,26 @@
             </div>
 
             <div class=" col-sm-6">
-                <mat-label>Rental order: </mat-label>
-                <input matInput class="form-control" name="rentalOrder" [(ngModel)]="rent.rentalOrder" type="date"
-                    required>
-            </div>
-
-            <div class=" col-sm-6">
                 <mat-label>Date order: </mat-label>
                 <input matInput class="form-control" name="dateOrder" [(ngModel)]="rent.dateOrder" type="date" required>
             </div>
 
             <div class=" col-sm-6">
                 <label class="form-label"> Customer: </label>
-                <select class="form-control" name="customer" [(ngModel)]="rent.customer" required>
-                    <option *ngFor="let customer of customers" [ngValue]="customer">
+                <mat-select class="form-control" name="customer" [(ngModel)]="rent.customer" required>
+                    <mat-option *ngFor="let customer of customers" [value]="customer">
                         {{ customer.email }}
-                    </option>
-                </select>
+                    </mat-option>
+                </mat-select>
             </div>
 
             <div class=" col-sm-6">
                 <label class="form-label"> Book: </label>
-                <select class="form-control" name="book" [(ngModel)]="rent.book" required>
-                    <option *ngFor="let book of books" [ngValue]="book">
+                <mat-select class="form-control" name="book" [(ngModel)]="rent.book" required>
+                    <mat-option *ngFor="let book of books" [value]="book">
                         {{ book.name }}
-                    </option>
-                </select>
+                    </mat-option>
+                </mat-select>
             </div>
 
             <div>

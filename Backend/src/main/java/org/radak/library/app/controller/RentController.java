@@ -1,6 +1,7 @@
 package org.radak.library.app.controller;
 
 import org.radak.library.app.aspect.Logged;
+import org.radak.library.app.aspect.LoggedAdministrator;
 import org.radak.library.app.dto.BookDTO;
 import org.radak.library.app.dto.CustomerDTO;
 import org.radak.library.app.dto.RentDTO;
@@ -19,13 +20,12 @@ import java.util.Optional;
 import java.util.function.Function;
 
 @Controller
-//@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path = "/api/rents")
 public class RentController {
     @Autowired
     private RentService rentService;
 
-//    @Logged
+    @LoggedAdministrator
     @RequestMapping(path = "", method = RequestMethod.GET)
 //    @Secured({"ROLE_ADMIN"})
     public ResponseEntity<Page<RentDTO>> getAll(Pageable pageable) {
