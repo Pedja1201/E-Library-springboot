@@ -1,0 +1,14 @@
+div{
+    width: 50%;
+    margin-left: 20%;
+    margin-bottom: 2%;
+  }
+  
+  .card{
+    width:40%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.5vw;
+    margin: 6%;
+  }
+  

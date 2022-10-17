@@ -14,8 +14,12 @@ import { EditOrdersComponent } from './components/order/edit-orders/edit-orders.
 import { AddRentsComponent } from './components/rent/add-rents/add-rents.component';
 import { AllRentsComponent } from './components/rent/all-rents/all-rents.component';
 import { EditRentsComponent } from './components/rent/edit-rents/edit-rents.component';
+import { AddAdminsComponent } from './components/user/add-admins/add-admins.component';
+import { AddCustomerComponent } from './components/user/add-customer/add-customer.component';
 import { AddUserComponent } from './components/user/add-user/add-user.component';
 import { AllUserComponent } from './components/user/all-user/all-user.component';
+import { EditAdminsComponent } from './components/user/edit-admins/edit-admins.component';
+import { EditCustomerComponent } from './components/user/edit-customer/edit-customer.component';
 import { EditUserComponent } from './components/user/edit-user/edit-user.component';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -27,6 +31,12 @@ const routes: Routes = [
   {path: 'users', component: AllUserComponent, canActivate:[AuthGuard]},
   {path : 'add-users', component : AddUserComponent},
   {path: 'edit-users/:id', component: EditUserComponent, canActivate:[AuthGuard]},
+
+  {path : 'add-admin', component : AddAdminsComponent},
+  {path: 'edit-admin/:id', component: EditAdminsComponent, canActivate:[AuthGuard]},
+
+  {path : 'add-customer', component : AddCustomerComponent},
+  {path: 'edit-customer/:id', component: EditCustomerComponent, canActivate:[AuthGuard]},
 
   {path: 'libraries', component: AllLibrariesComponent, canActivate:[AuthGuard]},
   {path : 'add-library', component : AddLibrariesComponent},

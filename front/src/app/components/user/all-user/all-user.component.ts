@@ -10,32 +10,11 @@ import { UsersService } from 'src/app/services/users/users.service';
 })
 export class AllUserComponent implements OnInit {
 
-  users : User[] = [];
 
-  constructor(private service : UsersService, private router : Router) { }
+  constructor() { }
 
    ngOnInit(): void {
-    this.getAll();
   }
 
-  getAll() {
-    this.service.getAll().subscribe({
-      next: (value: any) => { this.users = value.content }
-    });
-  }
-
-
-  delete = (us: User) => {
-    this.service.delete(us)
-      .subscribe(resp => this.getAll());
-  }
-
-  edit(user:User){
-    this.router.navigate(['/edit-users', user.id])
-  }
-
-  addUserForm(){
-    this.router.navigate(['/add-users'])
-  }
 
 }

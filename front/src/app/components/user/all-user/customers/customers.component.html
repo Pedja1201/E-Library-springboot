@@ -1,0 +1,50 @@
+<h1>Customers</h1>
+
+<div class="row-justify-center screen">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <!-- <th>Password</th> -->
+                <th>Fisrt name</th>
+                <th>Last name</th>
+                <th>Date of Birth</th>
+                <th>E-mail</th>
+                <th>Phone number</th>
+                <th>Place</th>
+                <th>Address</th>
+                <th>Action
+                    <svg (click)="addForm()" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-plus-square-fill plus-btn plus btn-hover m-3"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                    </svg>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of customers">
+                <td>{{c.id}}</td>
+                <td>{{c["username"]}}</td>
+                <!-- <td>{{a["password"]}}</td> -->
+                <td>{{c["firstName"]}}</td>
+                <td>{{c["lastName"]}}</td>
+                <td>{{c["dateOfBirth"]}}</td>
+                <td>{{c["email"]}}</td>
+                <td>{{c["phoneNumber"]}}</td>
+                <td>{{c["place"]}}</td>
+                <td>{{c["address"]}}</td>
+    
+                <td style="text-align: center;">
+                    <button mat-icon-button class="edit btn-hover" (click)="edit(c)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button class="btn-hover" color="warn" (click)="delete(c)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>

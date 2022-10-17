@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.function.Function;
 
 @Controller
-@RequestMapping(path = "api/admini")
+@RequestMapping(path = "api/admins")
 public class AdminController {
     @Autowired
     private AdminService adminService;

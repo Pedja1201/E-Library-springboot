@@ -1,5 +1,11 @@
-export class Admin {
-    id: number;
+import { User } from "./user";
+
+export interface AdminPage<Admin> {
+    content: Admin[];
+  }
+export class Admin extends User{
+    override username: string;
+    override password: string;
     firstName : string;
     lastName : string;
     email : string;
@@ -7,7 +13,9 @@ export class Admin {
 
 
     constructor (){
-        this.id = 0;
+        super();
+        this.username = '';
+        this.password = '';
         this.firstName = '';
         this.lastName = '';
         this.email = '';

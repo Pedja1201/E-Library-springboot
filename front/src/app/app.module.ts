@@ -40,6 +40,12 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { FormSignupComponent } from './components/auth/signup/form-signup/form-signup.component';
 import { FormSignupCustomerComponent } from './components/auth/signup/form-signup-customer/form-signup-customer.component';
+import { CustomersComponent } from './components/user/all-user/customers/customers.component';
+import { AdminsComponent } from './components/user/all-user/admins/admins.component';
+import { AddAdminsComponent } from './components/user/add-admins/add-admins.component';
+import { EditAdminsComponent } from './components/user/edit-admins/edit-admins.component';
+import { EditCustomerComponent } from './components/user/edit-customer/edit-customer.component';
+import { AddCustomerComponent } from './components/user/add-customer/add-customer.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +68,13 @@ import { FormSignupCustomerComponent } from './components/auth/signup/form-signu
     LoginComponent,
     SignupComponent,
     FormSignupComponent,
-    FormSignupCustomerComponent
+    FormSignupCustomerComponent,
+    CustomersComponent,
+    AdminsComponent,
+    AddAdminsComponent,
+    EditAdminsComponent,
+    EditCustomerComponent,
+    AddCustomerComponent
   ],
   imports: [
     BrowserModule,

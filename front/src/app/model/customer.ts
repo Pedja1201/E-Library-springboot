@@ -1,8 +1,11 @@
+import { User } from "./user";
+
 export interface CustomerPage<Customer> {
     content: Customer[];
   }
-export class Customer {
-    id: number;
+export class Customer extends User{
+    override username: string;
+    override password: string;
     firstName : string;
     lastName : string;
     dateOfBirth: Date;
@@ -13,7 +16,9 @@ export class Customer {
 
 
     constructor (){
-        this.id = 0;
+        super();
+        this.username = '';
+        this.password = '';
         this.firstName = '';
         this.lastName = '';
         this.dateOfBirth = new Date();

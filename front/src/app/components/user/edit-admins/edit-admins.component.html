@@ -1,0 +1,44 @@
+<div class = 'card p-3 bg-light'>
+    <form (submit)="update(admin)" ngNativeValidate>
+      <h2 style="text-align: center;"><i>Edit User</i></h2>
+      <div class=" col-sm-6">
+        <label class="form-label">Username: </label>
+        <input name="username" [(ngModel)]="admin.username" class="form-control" type="text" placeholder="username" required>
+        <div *ngIf="errorMessage != ''" class="alert-message w-100 m-2">
+          <div class="alert-message-row w-100 m-2">
+            {{errorMessage}}
+          </div>
+        </div>
+      </div>
+
+      <div class=" col-sm-6">
+        <label class="form-label">Password: </label>
+        <input name="password" [(ngModel)]="admin.password" class="form-control" type="password" placeholder="Enter password" required>
+      </div>
+  
+      <div class=" col-sm-6">
+        <label class="form-label">First Name: </label>
+        <input name="firstName" [(ngModel)]="admin.firstName" class="form-control" type="text" placeholder="Enter first name" required>
+      </div>
+
+      <div class=" col-sm-6">
+        <label class="form-label">Last Name: </label>
+        <input name="lastName" [(ngModel)]="admin.lastName" class="form-control" type="text" placeholder="Enter last name" required>
+      </div>
+
+      <div class=" col-sm-6">
+        <label class="form-label">E mail: </label>
+        <input name="email" [(ngModel)]="admin.email" class="form-control" type="email" placeholder="Enter email" required>
+      </div>
+
+      <div class=" col-sm-6">
+        <label class="form-label">UCIN: </label>
+        <input name="ucin" [(ngModel)]="admin.ucin" class="form-control" type="text" placeholder="Enter ucin" required>
+      </div>
+  
+      <div>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button (click) = "goBack()" type="submit" class="btn btn-secondary m-2">Cancel</button>
+      </div>
+    </form>
+  </div>
