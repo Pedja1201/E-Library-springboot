@@ -17,7 +17,6 @@ export class EditAdminsComponent implements OnInit {
     private service: AdminsService,
     private route: ActivatedRoute,
     private router: Router,
-    private location: Location,
     public loginService : LoginService) { }
 
 

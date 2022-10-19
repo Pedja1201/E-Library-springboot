@@ -17,7 +17,6 @@ export class EditCustomerComponent implements OnInit {
     private service: CustomersService,
     private route: ActivatedRoute,
     private router: Router,
-    private location: Location,
     public loginService : LoginService) { }
 
 

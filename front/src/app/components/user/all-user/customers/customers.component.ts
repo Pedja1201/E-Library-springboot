@@ -30,7 +30,7 @@ export class CustomersComponent implements OnInit {
   }
 
   edit(customer:Customer){
-    this.router.navigate(['/edit-customer', customer])
+    this.router.navigate(['/edit-customer', customer.id])
   }
 
   addForm(){
